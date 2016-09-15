@@ -7,15 +7,15 @@
 
   function LunchController($scope) {
     $scope.menu= ""; 
+    $scope.border= "0";
+    $scope.boxColor= "";
     $scope.result= "";
     $scope.check= function() {
       var content = $scope.menu;
       var result = "";
+      $scope.border="2";
       if (content.replace(/,/g," ").trim().length < 1) {
-        document.getElementById("lunch-menu")
-          .style.border = "2px solid red";
-        document.getElementsByClassName("message")[0]
-          .style.color = "red";
+        $scope.boxColor="red";
         result = "Please enter data first";
       }else{
         var array;
@@ -25,10 +25,7 @@
         }else{
           result = "Too much!";
         }
-        document.getElementById("lunch-menu")
-          .style.border = "2px solid green";
-        document.getElementsByClassName("message")[0]
-          .style.color = "green";
+        $scope.boxColor="green"
       }
       $scope.result=result;
     };
