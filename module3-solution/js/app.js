@@ -41,10 +41,14 @@
     narrow.find = function () {
       narrow.found = [];
       var term = narrow.term.toLowerCase();
-      for (var i = 0, l = narrow.items.length; i < l; i ++) {
-        var item = narrow.items[i];
-        if (item.description.toLowerCase().indexOf(term) !== -1) {
-          narrow.found.push(item);
+      if (term === "") {
+        narrow.found = [];
+      }else{
+        for (var i = 0, l = narrow.items.length; i < l; i ++) {
+          var item = narrow.items[i];
+          if (item.description.toLowerCase().indexOf(term) !== -1) {
+            narrow.found.push(item);
+          }
         }
       }
     }
